@@ -1,15 +1,14 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: example-service
-  labels:
-    app: example-app
+  name: mundose-loadbalancer
+  namespace: jenkins       
 spec:
-  type: LoadBalancer
+  type: LoadBalancer       
   selector:
-    app: example-app
+    app: mundose-app
   ports:
-    - protocol: TCP
-      name: http
+    - name: http
+      protocol: TCP
       port: 80
-      targetPort: 3001
+      targetPort: web
