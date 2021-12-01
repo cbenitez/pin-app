@@ -1,22 +1,39 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mundose
+  name: example-deploy
   labels:
-    app: mundose
+    app: example-app
+    test: test
+  annotations:
+    fluxcd.io/tag.example-app: semver:~1.0
+    fluxcd.io/automated: 'true'
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: mundose
+      app: example-app
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       labels:
-        app: mundose
+        app: example-app
     spec:
       containers:
-      - name: mundose
-        image: kiritian/pin-app:1.0.0
+      - name: example-app
+        image: kiritian/natours-app:1.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 3001
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
