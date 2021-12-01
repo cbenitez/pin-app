@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: mundose
   labels:
-    app: node
+    app: mundose
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: node
+      app: mundose
   template:
     metadata:
       labels:
-        app: node
+        app: mundose
     spec:
       containers:
-      - name: mundose-node
+      - name: mundose
         image: kiritian/pin-app:1.0.0
         imagePullPolicy: Always
         ports:
