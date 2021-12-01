@@ -15,8 +15,8 @@ spec:
         app: node
     spec:
       containers:
-      - name: node
-        image: kiritian/pin-app
+      - name: mundose-node
+        image: kiritian/pin-app:1.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 3001
