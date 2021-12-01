@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeploy
+  name: mundose
   labels:
     app: node
 spec:
