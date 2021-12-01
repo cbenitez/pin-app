@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: example-service
+  name: mundose-service
   labels:
-    app: example-app
+    app: mundose
 spec:
   type: LoadBalancer
   selector:
-    app: example-app
+    app: mundose-app
   ports:
     - protocol: TCP
       name: http
